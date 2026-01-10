@@ -1,6 +1,4 @@
-===========================================================================
                 MIRAIMONO HOBBY SHOP - POINT OF SALES (POS)
-===========================================================================
 
 1. IDENTITAS APLIKASI
    -------------------------------------------------------
@@ -131,4 +129,3 @@
          Merch) tanpa merusak jalannya aplikasi. Transaksi tetap berjalan normal
          apapun jenis barang yang dimasukkan ke keranjang.
 
-===========================================================================
