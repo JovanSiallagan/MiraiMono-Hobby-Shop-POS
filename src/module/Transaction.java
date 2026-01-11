@@ -11,7 +11,7 @@ public class Transaction {
     
     // Variabel Baru
     private double discountPercent = 0; // Diskon dalam persen (0 - 100)
-    private final double TAX_PERCENT = 0.11; // PPN 11% (Final)
+    private final double TAX_PERCENT = 0.11; // PPN 11% 
 
     public Transaction(String transactionID, Cashier cashier) {
         this.transactionID = transactionID;
@@ -34,13 +34,12 @@ public class Transaction {
         return discountPercent;
     }
 
-    // --- RUMUS PERHITUNGAN LENGKAP ---
+    // --- RUMUS PERHITUNGAN ---
     
     // 1. Hitung Subtotal (Total Harga Barang Murni)
     public double getSubtotal() {
         double sub = 0;
         for (Product p : cart) {
-            // Karena diskon per barang sudah dimatikan (0), ini aman
             sub += (p.getPrice() - p.hitungDiskon()); 
         }
         return sub;

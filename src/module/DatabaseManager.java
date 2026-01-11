@@ -87,15 +87,15 @@ public class DatabaseManager {
         return model;
     }
 
-    // --- UPDATE: SIMPAN TRANSAKSI LENGKAP (Subtotal, Diskon, Pajak) ---
+    // --- UPDATE: SIMPAN TRANSAKSI ---
     public void saveTransaction(Transaction t) {
-        // 1. Simpan Header Transaksi (Sekarang ada 7 kolom)
+        // 1. Simpan Header Transaksi
         String sqlHeader = "INSERT INTO transactions (transactionID, UserID, subtotal, discountAmount, taxAmount, totalPrice, transactionDate) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement pstmt = conn.prepareStatement(sqlHeader)) {
             pstmt.setString(1, t.getTransactionID());
             pstmt.setString(2, t.getKasir().getUserID());
             
-            // Data Keuangan Baru
+            // Data Keuangan
             pstmt.setDouble(3, t.getSubtotal());
             pstmt.setDouble(4, t.getDiscountAmount());
             pstmt.setDouble(5, t.getTaxAmount());
@@ -145,7 +145,7 @@ public class DatabaseManager {
         }
     }
     
-    // --- SEARCH PRODUCT (SUDAH DIPERBAIKI UNTUK GACHA & FIGURE) ---
+    // --- SEARCH PRODUCT ---
     public Product searchProductByID(String id) {
         String query = "SELECT * FROM product WHERE ProductID = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(query)) {
@@ -160,12 +160,10 @@ public class DatabaseManager {
                 int stock = rs.getInt("stock");
 
                 if (type.equalsIgnoreCase("Figure")) {
-                    // FIX: Tambahkan parameter "Figure" agar constructor cocok
                     return new Figure(pID, name, "Figure", price, stock); 
                 } else if (type.equalsIgnoreCase("Merch")) {
                     return new Merch(pID, name, type, price, stock);
                 } else if (type.equalsIgnoreCase("Gacha")) { 
-                    // FIX: Gacha pakai constructor khusus (4 parameter)
                     return new Gacha(pID, name, price, stock);
                 } else {
                     return new Clothing(pID, name, type, price, stock);
@@ -220,16 +218,16 @@ public class DatabaseManager {
         }
     }
     
-    // --- UPDATE: AMBIL RIWAYAT SUPER LENGKAP ---
+    // --- UPDATE: AMBIL RIWAYAT TRANSAKSI ---
     public DefaultTableModel getTransactionHistory() {
         DefaultTableModel model = new DefaultTableModel();
-        // Kolom Tabel Diperbanyak
+        // Kolom Tabel
         model.addColumn("ID Trx");
         model.addColumn("Kasir");
         model.addColumn("Item Barang");
-        model.addColumn("Subtotal");    // Baru
-        model.addColumn("Diskon");      // Baru
-        model.addColumn("PPN (11%)");   // Baru
+        model.addColumn("Subtotal");
+        model.addColumn("Diskon");
+        model.addColumn("PPN (11%)");
         model.addColumn("Grand Total");
         model.addColumn("Waktu");
 

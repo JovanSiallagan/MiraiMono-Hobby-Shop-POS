@@ -11,13 +11,13 @@ public class LoginFrame extends JFrame {
     private JTextField txtUsername = new JTextField();
     private JPasswordField txtPassword = new JPasswordField();
     private JButton btnLogin = new JButton("Login Masuk");
-    private JButton btnExit = new JButton("Tutup Aplikasi"); // Tombol Baru
+    private JButton btnExit = new JButton("Tutup Aplikasi");
     private DatabaseManager db;
 
     public LoginFrame() {
         // 1. Setup Dasar Window
         setTitle("Login - MiraiMono Hobby Shop");
-        setSize(400, 400); // Sedikit diperbesar agar muat 2 tombol
+        setSize(400, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null); 
         setLayout(new BorderLayout()); 
@@ -44,18 +44,18 @@ public class LoginFrame extends JFrame {
         add(panelForm, BorderLayout.CENTER);
 
         // 4. Bagian Tombol (BAWAH)
-        JPanel panelButton = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 20)); // FlowLayout dengan jarak 15px
+        JPanel panelButton = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 20));
         
         // Styling Tombol Login
         btnLogin.setPreferredSize(new Dimension(140, 40)); 
-        btnLogin.setBackground(new Color(50, 150, 50)); // Hijau
+        btnLogin.setBackground(new Color(50, 150, 50));
         btnLogin.setForeground(Color.WHITE); 
         btnLogin.setFont(new Font("SansSerif", Font.BOLD, 12));
         btnLogin.setFocusPainted(false);
         
-        // Styling Tombol Exit (Baru)
+        // Styling Tombol Exit
         btnExit.setPreferredSize(new Dimension(140, 40));
-        btnExit.setBackground(new Color(200, 50, 50)); // Merah
+        btnExit.setBackground(new Color(200, 50, 50)); 
         btnExit.setForeground(Color.WHITE);
         btnExit.setFont(new Font("SansSerif", Font.BOLD, 12));
         btnExit.setFocusPainted(false);

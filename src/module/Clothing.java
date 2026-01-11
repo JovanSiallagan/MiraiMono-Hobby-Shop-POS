@@ -1,4 +1,4 @@
-package module; // Bisa juga dipakai untuk Gacha
+package module;
 
 public class Clothing extends Product {
     public Clothing(String productID, String productName, String productType, double price, int stock) {

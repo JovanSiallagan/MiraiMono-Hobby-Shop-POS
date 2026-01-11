@@ -8,6 +8,6 @@ public class Figure extends Product {
 
     @Override
     public double hitungDiskon() {
-        return 0; // Diskon jadi 0 Rupiah
+        return 0; //
     }
 }

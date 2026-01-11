@@ -22,8 +22,8 @@ public class CashierDashboardFrame extends JFrame {
     
     // --- KOMPONEN BARU UNTUK RINCIAN HARGA ---
     private JLabel lblSubtotal, lblTax, lblGrandTotal;
-    private JTextField txtDiscount; // Input Diskon
-    private JButton btnProcessDiscount; // Tombol Set Diskon
+    private JTextField txtDiscount;
+    private JButton btnProcessDiscount;
 
     public CashierDashboardFrame(DatabaseManager db, Cashier cashier) {
         this.db = db;
@@ -33,7 +33,7 @@ public class CashierDashboardFrame extends JFrame {
 
         // 1. Setup Dasar
         setTitle("Kasir: " + cashier.getNama() + " | MiraiMono Hobby Shop");
-        setSize(1200, 750); // Sedikit diperbesar biar muat rincian
+        setSize(1200, 750);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
@@ -45,7 +45,7 @@ public class CashierDashboardFrame extends JFrame {
         lblHeader.setBorder(BorderFactory.createEmptyBorder(15, 10, 15, 10));
         add(lblHeader, BorderLayout.NORTH);
 
-        // 3. PANEL KIRI (Etalase Produk - TETAP SAMA)
+        // 3. PANEL KIRI (Etalase Produk)
         JPanel leftPanel = new JPanel(new BorderLayout());
         leftPanel.setBorder(BorderFactory.createTitledBorder(" Daftar Produk "));
         ((javax.swing.border.TitledBorder)leftPanel.getBorder()).setTitleFont(new Font("Verdana", Font.BOLD, 14));
@@ -65,7 +65,7 @@ public class CashierDashboardFrame extends JFrame {
         JPanel rightPanel = new JPanel(new BorderLayout());
         rightPanel.setBorder(BorderFactory.createTitledBorder(" Keranjang Belanja "));
         ((javax.swing.border.TitledBorder)rightPanel.getBorder()).setTitleFont(new Font("Verdana", Font.BOLD, 14));
-        rightPanel.setPreferredSize(new Dimension(500, 700)); // Lebarkan sedikit
+        rightPanel.setPreferredSize(new Dimension(500, 700));
 
         cartModel = new DefaultTableModel();
         cartModel.addColumn("Nama Barang");
@@ -78,12 +78,11 @@ public class CashierDashboardFrame extends JFrame {
         rightPanel.add(new JScrollPane(cartTable), BorderLayout.CENTER);
 
         // --- UPDATE BAGIAN CHECKOUT (BAWAH KANAN) ---
-        // Kita ganti GridLayout biasa dengan panel yang lebih rapi untuk rincian
         JPanel checkoutContainer = new JPanel(new BorderLayout());
         checkoutContainer.setBorder(BorderFactory.createEmptyBorder(10, 20, 20, 20));
 
         // A. Panel Rincian Harga (Subtotal, Diskon, PPN, Total)
-        JPanel calcPanel = new JPanel(new GridLayout(0, 1, 5, 5)); // Grid vertikal
+        JPanel calcPanel = new JPanel(new GridLayout(0, 1, 5, 5));
         
         // Baris Subtotal
         JPanel pnlSub = new JPanel(new BorderLayout());
@@ -100,7 +99,7 @@ public class CashierDashboardFrame extends JFrame {
         JPanel pnlInputDisc = new JPanel(new BorderLayout());
         txtDiscount = new JTextField("0");
         txtDiscount.setHorizontalAlignment(JTextField.RIGHT);
-        btnProcessDiscount = new JButton("Set"); // Tombol kecil
+        btnProcessDiscount = new JButton("Set");
         btnProcessDiscount.setMargin(new Insets(2, 5, 2, 5));
         
         pnlInputDisc.add(txtDiscount, BorderLayout.CENTER);
@@ -126,15 +125,15 @@ public class CashierDashboardFrame extends JFrame {
         
         lblGrandTotal = new JLabel("Rp0");
         lblGrandTotal.setFont(new Font("Verdana", Font.BOLD, 20));
-        lblGrandTotal.setForeground(new Color(200, 50, 50)); // Merah
+        lblGrandTotal.setForeground(new Color(200, 50, 50));
         pnlTotal.add(lblGrandTotal, BorderLayout.EAST);
         calcPanel.add(pnlTotal);
 
         checkoutContainer.add(calcPanel, BorderLayout.CENTER);
 
         // B. Panel Tombol Aksi (Bayar, Reset, Logout)
-        JPanel buttonPanel = new JPanel(new GridLayout(1, 3, 10, 0)); // 1 Baris, 3 Kolom
-        buttonPanel.setBorder(BorderFactory.createEmptyBorder(15, 0, 0, 0)); // Jarak dari total
+        JPanel buttonPanel = new JPanel(new GridLayout(1, 3, 10, 0));
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(15, 0, 0, 0));
         
         JButton btnPay = createStyledButton("BAYAR", new Color(50, 150, 50)); 
         JButton btnClear = createStyledButton("Reset", new Color(200, 50, 50));
@@ -156,7 +155,7 @@ public class CashierDashboardFrame extends JFrame {
 
         // --- EVENT LISTENER ---
         
-        // 1. Logika Set Diskon (BARU)
+        // 1. Logika Set Diskon
         btnProcessDiscount.addActionListener(e -> {
             try {
                 double disc = Double.parseDouble(txtDiscount.getText());
@@ -167,7 +166,7 @@ public class CashierDashboardFrame extends JFrame {
                 } else {
                     currentTransaction.setDiscountPercent(disc);
                 }
-                refreshCartTable(); // Update angka-angka
+                refreshCartTable();
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Masukkan angka saja!");
             }
@@ -215,7 +214,7 @@ public class CashierDashboardFrame extends JFrame {
         JButton btn = new JButton(text);
         btn.setBackground(bg);
         btn.setForeground(Color.WHITE);
-        btn.setFont(new Font("SansSerif", Font.BOLD, 12)); // Font sesuaikan dikit biar muat
+        btn.setFont(new Font("SansSerif", Font.BOLD, 12));
         btn.setFocusPainted(false);
         return btn;
     }
@@ -224,8 +223,6 @@ public class CashierDashboardFrame extends JFrame {
         String trxID = "TRX-" + System.currentTimeMillis();
         this.currentTransaction = new Transaction(trxID, cashier);
         if (cartModel != null) cartModel.setRowCount(0);
-        
-        // Reset Label
         if (txtDiscount != null) txtDiscount.setText("0");
         if (lblSubtotal != null) lblSubtotal.setText("Rp0");
         if (lblTax != null) lblTax.setText("Rp0");
@@ -260,7 +257,6 @@ public class CashierDashboardFrame extends JFrame {
         
         for (Product p : cart) {
             counts.put(p.getProductName(), counts.getOrDefault(p.getProductName(), 0) + 1);
-            // Harga per item (Diskon produk kita anggap 0 sesuai permintaan sebelumnya)
             subtotals.put(p.getProductName(), p.getPrice());
         }
 
@@ -275,14 +271,13 @@ public class CashierDashboardFrame extends JFrame {
         }
         
         // --- UPDATE LABEL RINCIAN HARGA (PENTING) ---
-        // Menggunakan method baru di Transaction.java
         lblSubtotal.setText(db.formatRupiah(currentTransaction.getSubtotal()));
         lblTax.setText(db.formatRupiah(currentTransaction.getTaxAmount()));
         lblGrandTotal.setText(db.formatRupiah(currentTransaction.totalHarga()));
     }
 
     private void processPayment() {
-        double total = currentTransaction.totalHarga(); // Ini sudah termasuk PPN - Diskon
+        double total = currentTransaction.totalHarga();
         if (total <= 0) {
             JOptionPane.showMessageDialog(this, "Keranjang masih kosong!");
             return;
@@ -325,7 +320,7 @@ public class CashierDashboardFrame extends JFrame {
         }
     }
     
-    // --- METHOD CETAK STRUK (DIPERBARUI ADA DISKON & PAJAK) ---
+    // --- METHOD CETAK STRUK ---
     private void printStruk(double total, double bayar, double kembalian) {
         StringBuilder sb = new StringBuilder();
         
@@ -347,7 +342,7 @@ public class CashierDashboardFrame extends JFrame {
         for (Product p : currentTransaction.getCart()) {
             String id = p.getProductID();
             qtyMap.put(id, qtyMap.getOrDefault(id, 0) + 1);
-            priceMap.put(id, p.getPrice()); // Harga normal
+            priceMap.put(id, p.getPrice());
             nameMap.put(id, p.getProductName());
         }
         
@@ -384,7 +379,7 @@ public class CashierDashboardFrame extends JFrame {
         textArea.setFont(new Font("Monospaced", Font.BOLD, 12)); 
         textArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(textArea);
-        scrollPane.setPreferredSize(new Dimension(350, 450)); // Panjangin dikit
+        scrollPane.setPreferredSize(new Dimension(350, 450));
         
         Object[] options = {"Tutup", "Simpan Struk (Save As...)"};
         

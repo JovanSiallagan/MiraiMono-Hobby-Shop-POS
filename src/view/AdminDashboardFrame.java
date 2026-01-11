@@ -8,7 +8,6 @@ import module.DatabaseManager;
 public class AdminDashboardFrame extends JFrame {
     private JTable table;
     private DatabaseManager db;
-    // Tambah btnHistory
     private JButton btnRefresh, btnAdd, btnEdit, btnDelete, btnHistory, btnLogout;
 
     public AdminDashboardFrame(DatabaseManager db) {
@@ -16,7 +15,7 @@ public class AdminDashboardFrame extends JFrame {
 
         // 1. Setup Dasar Window
         setTitle("Admin Dashboard - MiraiMono Hobby Shop");
-        setSize(1100, 650); // Diperlebar lagi biar muat banyak tombol
+        setSize(1100, 650); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
@@ -50,17 +49,14 @@ public class AdminDashboardFrame extends JFrame {
         btnAdd = createStyledButton("Tambah", new Color(50, 150, 50)); 
         btnEdit = createStyledButton("Edit", new Color(255, 140, 0)); 
         btnDelete = createStyledButton("Hapus", new Color(200, 50, 50)); 
-        
-        // TOMBOL BARU: RIWAYAT (UNGU)
         btnHistory = createStyledButton("Riwayat Trx", new Color(128, 0, 128));
-        
         btnLogout = createStyledButton("Logout", new Color(100, 100, 100));
 
         panelButton.add(btnRefresh);
         panelButton.add(btnAdd);
         panelButton.add(btnEdit);
         panelButton.add(btnDelete);
-        panelButton.add(btnHistory); // Masukkan tombol history
+        panelButton.add(btnHistory);
         panelButton.add(btnLogout);
         
         add(panelButton, BorderLayout.SOUTH);
@@ -75,15 +71,13 @@ public class AdminDashboardFrame extends JFrame {
             }
         });
 
-        // Event Listener Tombol History (Membuka Frame Baru)
         btnHistory.addActionListener(e -> {
-            // Buka jendela HistoryFrame
             new HistoryFrame(db).setVisible(true);
         });
 
         btnRefresh.addActionListener(e -> refreshTable());
 
-        // LOGIKA EDIT (Sama seperti sebelumnya)
+        // LOGIKA EDIT
         btnEdit.addActionListener(e -> {
             int selectedRow = table.getSelectedRow();
             if (selectedRow != -1) {
@@ -149,7 +143,7 @@ public class AdminDashboardFrame extends JFrame {
             }
         });
 
-        // LOGIKA TAMBAH (Sama seperti sebelumnya)
+        // LOGIKA TAMBAH
         btnAdd.addActionListener(e -> {
             JPanel panelInput = new JPanel(new GridLayout(5, 2, 10, 20)); 
             panelInput.setPreferredSize(new Dimension(400, 250)); 
@@ -197,7 +191,7 @@ public class AdminDashboardFrame extends JFrame {
             }
         });
 
-        // LOGIKA HAPUS (Sama seperti sebelumnya)
+        // LOGIKA HAPUS
         btnDelete.addActionListener(e -> {
             int selectedRow = table.getSelectedRow();
             if (selectedRow != -1) {
@@ -219,7 +213,6 @@ public class AdminDashboardFrame extends JFrame {
         btn.setForeground(Color.WHITE);
         btn.setFont(new Font("SansSerif", Font.BOLD, 12)); 
         btn.setFocusPainted(false);
-        // Ukuran tombol sedikit dikecilkan lebarnya agar muat 6 tombol
         btn.setPreferredSize(new Dimension(110, 40)); 
         return btn;
     }

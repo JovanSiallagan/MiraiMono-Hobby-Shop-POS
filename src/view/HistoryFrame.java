@@ -13,9 +13,9 @@ public class HistoryFrame extends JFrame {
     public HistoryFrame(DatabaseManager db) {
         this.db = db;
 
-        // 1. Setup Window (DIPERLEBAR BIAR MUAT BANYAK KOLOM)
+        // 1. Setup Window
         setTitle("Riwayat Transaksi Lengkap - MiraiMono Hobby Shop");
-        setSize(1200, 600); // Lebar 1200
+        setSize(1200, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
@@ -29,7 +29,7 @@ public class HistoryFrame extends JFrame {
 
         // 3. TABEL
         table = new JTable();
-        table.setRowHeight(30); // Row lebih tinggi dikit
+        table.setRowHeight(30);
         table.setFont(new Font("SansSerif", Font.PLAIN, 12));
         table.getTableHeader().setFont(new Font("SansSerif", Font.BOLD, 12));
         table.getTableHeader().setBackground(new Color(230, 230, 250));
@@ -38,7 +38,6 @@ public class HistoryFrame extends JFrame {
 
         JScrollPane scrollPane = new JScrollPane(table);
         
-        // Agar bisa scroll horizontal kalau layar kekecilan
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF); 
         
         JPanel tablePanel = new JPanel(new BorderLayout());
@@ -68,7 +67,7 @@ public class HistoryFrame extends JFrame {
         DefaultTableModel model = db.getTransactionHistory();
         table.setModel(model);
         
-        // SETUP LEBAR KOLOM (PENTING BIAR RAPI)
+        // SETUP LEBAR KOLOM
         // Kolom: ID, Kasir, Items, Subtotal, Diskon, PPN, Total, Waktu
         if (table.getColumnCount() >= 8) {
             table.getColumnModel().getColumn(0).setPreferredWidth(120); // ID Trx
