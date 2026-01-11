@@ -97,8 +97,8 @@ Aplikasi ini memisahkan hak akses antara Admin dan Kasir. Admin dapat mengelola 
 ### A. Inheritance (Pewarisan)
 
 **Class terkait:**  
-Product → Figure, Merch, Clothing, Gacha  
-User → Admin, Cashier  
+- Product → Figure, Merch, Clothing, Gacha  
+- User → Admin, Cashier  
 
 **Penjelasan:**  
 Inheritance memungkinkan class turunan mewarisi atribut dan method dari class induknya. Dengan pendekatan ini, data umum seperti ID, nama, harga, dan role tidak perlu ditulis ulang di setiap class, sehingga kode menjadi lebih ringkas dan mudah dikembangkan.
@@ -106,29 +106,29 @@ Inheritance memungkinkan class turunan mewarisi atribut dan method dari class in
 
 ### B. Encapsulation (Pembungkusan Data)
 
-- Class terkait:
-Seluruh class utama (Product, User, Transaction, dll.)
+**Class terkait:**
+- Seluruh class utama (Product, User, Transaction, dll.)
 
-- Penjelasan:
+**Penjelasan:**
 Encapsulation membatasi akses langsung ke atribut penting dengan menjadikannya private. Akses data hanya dilakukan melalui method Getter dan Setter, sehingga perubahan nilai dapat dikontrol dan tidak merusak logika aplikasi.
 
 
 ### C. Polymorphism (Polimorfisme)
 
-- Class terkait:
-Product dan seluruh turunannya
+**Class terkait:**
+- Product dan seluruh turunannya
 
-- Penjelasan:
+**Penjelasan:**
 Polymorphism memungkinkan berbagai jenis produk diperlakukan sebagai satu tipe data, yaitu Product. Dengan cara ini, sistem transaksi dapat memproses semua jenis produk menggunakan satu alur logika tanpa perlakuan khusus.
 
 
 ### D. Abstraction (Abstraksi & Abstract Class)
 
-- Class terkait:
-Product (Abstract)
-User (Abstract)
+**Class terkait:**
+- Product (Abstract)
+- User (Abstract)
   
-- Penjelasan:
+**Penjelasan:**
 Abstraction mencegah pembuatan objek yang tidak memiliki jenis produk atau peran pengguna. Class abstract juga memaksa class turunan untuk mengimplementasikan logika yang dibutuhkan, sehingga struktur sistem tetap konsisten.  
 
 
