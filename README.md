@@ -175,6 +175,7 @@ ke dalam perhitungan transaksi.
 ---
 
 ## 6. Screenshot Hasil Aplikasi
+![Screenshot 202](https://github.com/user-attachments/assets/f9ad3fea-9e86-418f-a5b1-bae406d46850)
 
 ### Login Page
 
