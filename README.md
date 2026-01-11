@@ -117,31 +117,6 @@ Seluruh atribut vital (seperti harga barang, password user, persentase diskon) d
 
 - Penggunaan 'Abstract Method' pada hitungDiskon() memaksa setiap pengembang yang ingin menambah jenis barang baru untuk menentukan aturan diskonnya, menjaga konsistensi logika bisnis.
 
-
-### E. Generics (Type Safety)
-
-Aplikasi menggunakan fitur Java Generics pada struktur data keranjang belanja:  
-`ArrayList<Product> cart`.
-
-Hal ini menjamin Type Safety, di mana keranjang belanja hanya bisa diisi oleh objek turunan Product, mencegah masuknya objek lain (seperti User) ke dalam perhitungan transaksi.
-
-
-### F. Penerapan SOLID Principles (Selected)
-
-1. Single Responsibility Principle (SRP):  
-   Setiap class memiliki satu tanggung jawab spesifik.  
-   - 'DatabaseManager' hanya mengurus koneksi SQL.  
-   - 'Transaction' hanya mengurus logika matematika (Pajak/Diskon).  
-   - 'Frame' (View) hanya mengurus tampilan GUI.  
-   Kode menjadi lebih rapi dan mudah dirawat (maintainable).
-
-2. Open/Closed Principle (OCP):  
-   Sistem terbuka untuk penambahan tapi tertutup untuk modifikasi.  
-   Contoh: Saat menambahkan fitur 'Gacha', kita hanya perlu membuat class baru 'Gacha.java' yang mewarisi 'Product', tanpa perlu mengacak-acak logika perhitungan inti di class 'Transaction'.
-
-3. Liskov Substitution Principle (LSP):  
-   Objek 'Product' dalam sistem dapat digantikan oleh turunannya (Figure, Merch) tanpa merusak jalannya aplikasi. Transaksi tetap berjalan normal apapun jenis barang yang dimasukkan ke keranjang.
-
 ---
 
 ## 6. Screenshot Hasil Aplikasi
