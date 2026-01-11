@@ -96,12 +96,21 @@ Aplikasi ini memisahkan hak akses antara Admin dan Kasir. Admin dapat mengelola 
 
 ### A. Inheritance (Pewarisan)
 
-Aplikasi menerapkan pewarisan dimana class 'Figure', 'Merch', 'Clothing', dan 'Gacha' mewarisi atribut (ID, Nama, Harga) dari class induk 'Product'. Begitu juga dengan 'Admin' dan 'Cashier' yang mewarisi class 'User'. Hal ini meminimalkan duplikasi kode (DRY Principle).
+- Class terkait:
+  > Product → Figure, Merch, Clothing, Gacha
+  > User → Admin, Cashier
+
+- Penjelasan:
+  > Inheritance memungkinkan class turunan mewarisi atribut dan method dari class induknya. Dengan pendekatan ini, data umum seperti ID, nama, harga, dan role tidak perlu ditulis ulang di setiap class, sehingga kode menjadi lebih ringkas dan mudah dikembangkan.
 
 
 ### B. Encapsulation (Pembungkusan Data)
 
-Seluruh atribut vital (seperti harga barang, password user, persentase diskon) diset sebagai 'private'. Akses dari luar class dibatasi hanya melalui method 'Getter' dan 'Setter' (Public API). Ini mencegah perubahan nilai variabel secara sembarangan yang bisa merusak logika perhitungan.
+- Class terkait:
+  > Seluruh class utama (Product, User, Transaction, dll.)
+
+- Penjelasan:
+  > Encapsulation membatasi akses langsung ke atribut penting dengan menjadikannya private. Akses data hanya dilakukan melalui method Getter dan Setter, sehingga perubahan nilai dapat dikontrol dan tidak merusak logika aplikasi.
 
 
 ### C. Polymorphism (Polimorfisme)
