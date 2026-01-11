@@ -179,3 +179,12 @@ ke dalam perhitungan transaksi.
 ### Login Page
 ![Screenshot 202](https://github.com/user-attachments/assets/f9ad3fea-9e86-418f-a5b1-bae406d46850)
 
+### Admin Page
+<img width="1358" height="803" alt="Admin Page" src="https://github.com/user-attachments/assets/a3e3572c-beb0-433b-b7f6-97ae98a3a22b" />
+
+## History Page
+<img width="1483" height="742" alt="History Page" src="https://github.com/user-attachments/assets/c64585de-61e1-4e7f-8a77-09760494e003" />
+
+#Chasier Page
+<img width="1483" height="928" alt="Chasier Page" src="https://github.com/user-attachments/assets/dc95509b-6cbc-46a5-8af5-e9c7bc0df7c0" />
+
