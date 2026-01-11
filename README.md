@@ -97,34 +97,40 @@ Aplikasi ini memisahkan hak akses antara Admin dan Kasir. Admin dapat mengelola 
 ### A. Inheritance (Pewarisan)
 
 - Class terkait:
-  > Product → Figure, Merch, Clothing, Gacha
-  > User → Admin, Cashier
+  Product → Figure, Merch, Clothing, Gacha
+  User → Admin, Cashier
 
 - Penjelasan:
-  > Inheritance memungkinkan class turunan mewarisi atribut dan method dari class induknya. Dengan pendekatan ini, data umum seperti ID, nama, harga, dan role tidak perlu ditulis ulang di setiap class, sehingga kode menjadi lebih ringkas dan mudah dikembangkan.
+  Inheritance memungkinkan class turunan mewarisi atribut dan method dari class induknya. Dengan pendekatan ini, data umum seperti ID, nama, harga, dan role tidak perlu ditulis ulang di setiap class, sehingga kode menjadi lebih ringkas dan mudah dikembangkan.
 
 
 ### B. Encapsulation (Pembungkusan Data)
 
 - Class terkait:
-  > Seluruh class utama (Product, User, Transaction, dll.)
+  Seluruh class utama (Product, User, Transaction, dll.)
 
 - Penjelasan:
-  > Encapsulation membatasi akses langsung ke atribut penting dengan menjadikannya private. Akses data hanya dilakukan melalui method Getter dan Setter, sehingga perubahan nilai dapat dikontrol dan tidak merusak logika aplikasi.
+  Encapsulation membatasi akses langsung ke atribut penting dengan menjadikannya private. Akses data hanya dilakukan melalui method Getter dan Setter, sehingga perubahan nilai dapat dikontrol dan tidak merusak logika aplikasi.
 
 
 ### C. Polymorphism (Polimorfisme)
 
-- Dynamic Binding: Dalam keranjang belanja, sistem memperlakukan berbagai objek berbeda (Figure, Gacha, Kaos) sebagai satu tipe data yaitu 'Product'.
+- Class terkait:
+  Product dan seluruh turunannya
 
-- Method Overriding: Method 'hitungDiskon()' dideklarasikan di induk, tapi implementasi pastinya ditentukan oleh masing-masing anak class (sub-class).
+- Penjelasan:
+  Polymorphism memungkinkan berbagai jenis produk diperlakukan sebagai satu tipe data, yaitu Product. Dengan cara ini, sistem transaksi dapat memproses semua jenis produk menggunakan satu alur logika tanpa perlakuan khusus.
 
 
 ### D. Abstraction (Abstraksi & Abstract Class)
 
-- Class 'Product' dan 'User' didefinisikan sebagai 'Abstract Class'. Artinya, sistem mencegah pembuatan objek 'Produk Kosong' atau 'User Tanpa Role'.
+- Class terkait:
+  Product (Abstract)
+  User (Abstract)
+  
+- Penjelasan:
+  Abstraction mencegah pembuatan objek yang tidak memiliki jenis produk atau peran pengguna. Class abstract juga memaksa class turunan untuk mengimplementasikan logika yang dibutuhkan, sehingga struktur sistem tetap konsisten.  
 
-- Penggunaan 'Abstract Method' pada hitungDiskon() memaksa setiap pengembang yang ingin menambah jenis barang baru untuk menentukan aturan diskonnya, menjaga konsistensi logika bisnis.
 
 ---
 
