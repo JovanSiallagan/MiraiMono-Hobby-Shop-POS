@@ -107,7 +107,7 @@ regulasi, serta mencetak struk belanja.
 
 ---
 
-## 5. PENJELASAN KONSEP OOP DAN PRINSIP SOLID
+## 5. PENJELASAN KONSEP OOP
 
 ### A. Inheritance (Pewarisan)
 
@@ -180,3 +180,11 @@ ke dalam perhitungan transaksi.
    Objek 'Product' dalam sistem dapat digantikan oleh turunannya (Figure,  
    Merch) tanpa merusak jalannya aplikasi. Transaksi tetap berjalan normal  
    apapun jenis barang yang dimasukkan ke keranjang.
+
+---
+
+## 6. Screenshot Hasil Aplikasi
+
+### Login Page
+
+
