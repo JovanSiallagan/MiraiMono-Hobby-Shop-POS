@@ -8,7 +8,6 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                // Memanggil LoginFrame yang ada di package view
                 new LoginFrame().setVisible(true);
             }
         });
