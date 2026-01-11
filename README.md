@@ -36,7 +36,6 @@ regulasi, serta mencetak struk belanja.
 5. Klik tab 'Import', pilih file 'smartcashier.sql' yang disertakan dalam folder proyek.
 6. Klik tombol 'Go' atau 'Kirim' di bagian bawah. Tunggu hingga muncul pesan sukses (centang hijau).
 
----
 
 ### B. Menjalankan Aplikasi
 
@@ -46,7 +45,6 @@ regulasi, serta mencetak struk belanja.
 3. Buka file 'src/main/Main.java'.
 4. Klik Run / Jalankan.
 
----
 
 ### C. Akun Login Default
 
@@ -62,7 +60,6 @@ regulasi, serta mencetak struk belanja.
 - Main.java  
   > Entry point (titik awal) aplikasi. Bertugas memanggil LoginFrame.
 
----
 
 ### [Package: module]
 
@@ -87,7 +84,6 @@ regulasi, serta mencetak struk belanja.
   > Class logika bisnis ("otak" kasir). Menghitung Subtotal, menghitung nominal  
   > Diskon berdasarkan input persen, menghitung PPN 11%, dan Total Akhir.
 
----
 
 ### [Package: view]
 
@@ -116,7 +112,6 @@ dan 'Gacha' mewarisi atribut (ID, Nama, Harga) dari class induk 'Product'.
 Begitu juga dengan 'Admin' dan 'Cashier' yang mewarisi class 'User'.  
 Hal ini meminimalkan duplikasi kode (DRY Principle).
 
----
 
 ### B. Encapsulation (Pembungkusan Data)
 
@@ -125,7 +120,6 @@ diset sebagai 'private'. Akses dari luar class dibatasi hanya melalui
 method 'Getter' dan 'Setter' (Public API). Ini mencegah perubahan nilai  
 variabel secara sembarangan yang bisa merusak logika perhitungan.
 
----
 
 ### C. Polymorphism (Polimorfisme)
 
@@ -136,7 +130,6 @@ variabel secara sembarangan yang bisa merusak logika perhitungan.
   tapi implementasi pastinya ditentukan oleh masing-masing anak class  
   (sub-class).
 
----
 
 ### D. Abstraction (Abstraksi & Abstract Class)
 
@@ -148,7 +141,6 @@ variabel secara sembarangan yang bisa merusak logika perhitungan.
   yang ingin menambah jenis barang baru untuk menentukan aturan diskonnya,  
   menjaga konsistensi logika bisnis.
 
----
 
 ### E. Generics (Type Safety)
 
@@ -159,7 +151,6 @@ Hal ini menjamin Type Safety, di mana keranjang belanja hanya bisa diisi
 oleh objek turunan Product, mencegah masuknya objek lain (seperti User)  
 ke dalam perhitungan transaksi.
 
----
 
 ### F. Penerapan SOLID Principles (Selected)
 
