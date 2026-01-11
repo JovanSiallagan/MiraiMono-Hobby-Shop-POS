@@ -96,11 +96,11 @@ Aplikasi ini memisahkan hak akses antara Admin dan Kasir. Admin dapat mengelola 
 
 ### A. Inheritance (Pewarisan)
 
-- Class terkait:
-Product → Figure, Merch, Clothing, Gacha
-User → Admin, Cashier
+**Class terkait:**  
+Product → Figure, Merch, Clothing, Gacha  
+User → Admin, Cashier  
 
-- Penjelasan:
+**Penjelasan:**  
 Inheritance memungkinkan class turunan mewarisi atribut dan method dari class induknya. Dengan pendekatan ini, data umum seperti ID, nama, harga, dan role tidak perlu ditulis ulang di setiap class, sehingga kode menjadi lebih ringkas dan mudah dikembangkan.
 
 
