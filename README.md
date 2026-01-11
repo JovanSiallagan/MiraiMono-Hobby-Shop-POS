@@ -101,7 +101,7 @@ Aplikasi ini memisahkan hak akses antara Admin dan Kasir. Admin dapat mengelola 
 - User → Admin, Cashier  
 
 **Penjelasan:**  
-Inheritance memungkinkan class turunan mewarisi atribut dan method dari class induknya. Dengan pendekatan ini, data umum seperti ID, nama, harga, dan role tidak perlu ditulis ulang di setiap class, sehingga kode menjadi lebih ringkas dan mudah dikembangkan.
+- Inheritance memungkinkan class turunan mewarisi atribut dan method dari class induknya. Dengan pendekatan ini, data umum seperti ID, nama, harga, dan role tidak perlu ditulis ulang di setiap class, sehingga kode menjadi lebih ringkas dan mudah dikembangkan.
 
 
 ### B. Encapsulation (Pembungkusan Data)
@@ -110,7 +110,7 @@ Inheritance memungkinkan class turunan mewarisi atribut dan method dari class in
 - Seluruh class utama (Product, User, Transaction, dll.)
 
 **Penjelasan:**
-Encapsulation membatasi akses langsung ke atribut penting dengan menjadikannya private. Akses data hanya dilakukan melalui method Getter dan Setter, sehingga perubahan nilai dapat dikontrol dan tidak merusak logika aplikasi.
+- Encapsulation membatasi akses langsung ke atribut penting dengan menjadikannya private. Akses data hanya dilakukan melalui method Getter dan Setter, sehingga perubahan nilai dapat dikontrol dan tidak merusak logika aplikasi.
 
 
 ### C. Polymorphism (Polimorfisme)
@@ -119,7 +119,7 @@ Encapsulation membatasi akses langsung ke atribut penting dengan menjadikannya p
 - Product dan seluruh turunannya
 
 **Penjelasan:**
-Polymorphism memungkinkan berbagai jenis produk diperlakukan sebagai satu tipe data, yaitu Product. Dengan cara ini, sistem transaksi dapat memproses semua jenis produk menggunakan satu alur logika tanpa perlakuan khusus.
+- Polymorphism memungkinkan berbagai jenis produk diperlakukan sebagai satu tipe data, yaitu Product. Dengan cara ini, sistem transaksi dapat memproses semua jenis produk menggunakan satu alur logika tanpa perlakuan khusus.
 
 
 ### D. Abstraction (Abstraksi & Abstract Class)
@@ -129,7 +129,7 @@ Polymorphism memungkinkan berbagai jenis produk diperlakukan sebagai satu tipe d
 - User (Abstract)
   
 **Penjelasan:**
-Abstraction mencegah pembuatan objek yang tidak memiliki jenis produk atau peran pengguna. Class abstract juga memaksa class turunan untuk mengimplementasikan logika yang dibutuhkan, sehingga struktur sistem tetap konsisten.  
+- Abstraction mencegah pembuatan objek yang tidak memiliki jenis produk atau peran pengguna. Class abstract juga memaksa class turunan untuk mengimplementasikan logika yang dibutuhkan, sehingga struktur sistem tetap konsisten.  
 
 
 ---
